@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Management</title>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <script src="data.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Library Management</h1>
+      </header>
+
+      <main>
+        <div id="tools-field">
+          <div>
+            <button onclick="filterData()" class="btn">
+              Filter <i class="fa fa-filter"></i>
+            </button>
+            <dialog id="filter-dialog">
+              <h1 style="text-align: center; text-decoration:underline">Filter</h1>
+              <div id="filter-field">
+                <h4 class="filter-heading">Author:</h4>
+                <div id="filter-author"></div>
+                <h4 class="filter-heading">Subject:</h4>
+                <div id="filter-subject"></div>
+                <h4 class="filter-heading">Date:</h4>
+                <div id="filter-date"></div>
+              </div>
+              <button
+                onclick="filterDataHandler()"
+                class="btn"
+                style="float: right"
+              >
+                Done
+              </button>
+            </dialog>
+          </div>
+
+          <div>
+            <label for="sort" style="font-size: large; font-weight: bold"
+              >Sort:
+            </label>
+            <select
+              name="sort"
+              onChange="sortData(this.options[this.selectedIndex].value)"
+              class="btn"
+            >
+              <option value="default">None</option>
+              <option value="title">Title</option>
+              <option value="author">Author</option>
+              <option value="subject">Subject</option>
+              <option value="date">Date</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="tableField"></div>
+
+        <div id="nav-btn">
+          <button id="prev" class="btn">Previous</button>
+          <button id="next" class="btn">Next</button>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
